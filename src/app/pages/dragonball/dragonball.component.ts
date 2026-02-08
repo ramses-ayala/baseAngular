@@ -24,23 +24,6 @@ export class DragonBallComponent {
         }
     ]);
 
-    /* classesPower = computed(() => {
-        return {
-            'text-danger': true
-        }
-    }) */
-
-    /* onChangeEvent (event: Event) {
-        const value = (event.target as HTMLInputElement).value;
-        console.log('value: ', value);
-    } */
-
-        /* convertToInt (event: Event) {
-            const value = parseInt((event.target as HTMLInputElement).value);
-            this.power.set(value);
-            console.log('value: ', value, ' , typeof: ', typeof(value));
-        } */
-
     addCharacter() {
         if (!this.name() || !this.power() || this.power() <= 0) return;
 
