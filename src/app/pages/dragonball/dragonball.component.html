@@ -1,0 +1,44 @@
+<section>
+    <h1>Dragonball component</h1>
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <label for="">Name:</label>
+            <input 
+                type="text"
+                class="form-control"
+                [value]="name()"
+                (change)="name.set(txtName.value)"
+                (input)="name.set(txtName.value)"
+                #txtName
+            >
+            <label for="">Power: </label>
+            <input 
+                type="number"
+                class="form-control"
+                [value]="power()"
+                (input)="power.set(+txtPower.value)"
+                #txtPower
+            >
+            <button (click)="addCharacter()" class="btn btn-primary mt-2">Add</button>
+        </div>
+        <div class="col-12 col-sm-6">
+            <h3>List</h3>
+            <ul>
+                @for (character of characters(); track character.id) {
+                    @if (character.power > 1000) {
+                        <li>
+                            <span>{{ character.id }}</span>
+                            <span>{{ character.name }}</span>
+                            <span 
+                            [class.text-danger]="character.power > 9000"
+                                [class.text-info]="character.power < 9000"    
+                            >{{ character.power }}</span>
+                        </li>
+                    } @else {
+                        <span>se agrego un personaje pero su poder no cumple los requerimientos para ser mostrado</span>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<section>
+    <h1>My cart</h1>
+    <div class="cart">
+        <div class="products">
+            @for (product of products(); track product.id) {
+                <div class="product-item">
+                    <span>{{ product.article }}</span>
+                    <span>\${{ product.price }}</span>
+                </div>
+
+                <div class="quantity-controls">
+                    <button (click)="decreaseQuantity(product.id)">-</button>
+                    <span>{{ product.quantity }}</span>
+                    <button (click)="increaseQuantity(product.id)">+</button>
+                </div>
+
+                <button (click)="removeProduct(product.id)">
+                    Eliminar
+                </button>
+            }
+            <div class="summary">
+                <p>Total de items: {{ totalItems() }}</p>
+                <p>Subtotal: \${{ calculateSubtotal() }}</p>
+                <p>IVA (16%): \${{ tax() }}</p>
+                <h3>Total: \${{ total() }}</h3>
+            </div>
+        </div>
+    </div>
+</section>
